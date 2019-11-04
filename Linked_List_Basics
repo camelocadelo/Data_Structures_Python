@@ -1,4 +1,6 @@
 # your code goes here
+# your code goes here
+# your code goes here
 class Node(object):
 	def __init__(self, d, n = None):
 		self.data = d
@@ -96,6 +98,24 @@ class LinkedList (object):
 			return newLL
 		return self
 		
+		
+	def sort_2(self):
+		if self.size > 1:
+			my_list = []
+			current_node = self.root
+			my_list.append(self.root.get_data())
+			while current_node.has_next():
+				current_node = current_node.get_next()
+				value = current_node.get_data()
+				my_list.append(value)
+			my_list.sort()
+			new_linked_list = LinkedList()
+			for el in my_list:
+				new_linked_list.add(el)
+			return new_linked_list
+		return self
+			
+		
 def main():
 	myList = LinkedList()
 	myList.add(5)
@@ -104,7 +124,6 @@ def main():
 	myList.add(8)
 	myList.add(9)
 	print("size= " + str(myList.get_size()))
-	myList.remove(8)
 	myList.print_list()
 	myList = myList.sort()
 	myList.print_list()
@@ -112,5 +131,9 @@ def main():
 	print("Remove 15: ", myList.remove(15))
 	print("size=" + str(myList.get_size()))
 	print("Find 25", myList.find(25))
+	print("_______________")
+	my_second_try = myList.sort_2()
+	my_second_try.print_list()
+	
 	
 main()
