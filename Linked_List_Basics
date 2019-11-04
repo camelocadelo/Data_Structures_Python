@@ -15,6 +15,15 @@ class Node(object):
 	
 	def set_data(self, d):
 		self.data = d
+		
+	def has_next(self):
+		if self.get_next() == None:
+			return False
+		else:
+			return True
+			
+	def to_string(self):
+		return "Node value: " + str(self.data)
 	
 	
 class LinkedList (object):
@@ -61,6 +70,16 @@ class LinkedList (object):
 				return False
 			else:
 				this_node = this_node.get_next()
+				
+	def print_list(self):
+		print("Print list.....")
+		if self.root is None:
+			return 
+		this_node = self.root
+		print(this_node.to_string())
+		while (this_node.has_next()):
+			this_node = this_node.get_next()
+			print(this_node.to_string())
 				
 	def sort(self):
 		if self.size > 1:
